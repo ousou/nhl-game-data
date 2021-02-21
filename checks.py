@@ -41,9 +41,20 @@ def recover_from_deficit(play_time, deficit, season):
 
 
 if __name__ == '__main__':
-    deficit_count_1, recover_count_1 = recover_from_deficit("55:00", 2, 2017)
-    deficit_count_2, recover_count_2 = recover_from_deficit("55:00", 2, 2018)
-    print("deficit_count", deficit_count_1 + deficit_count_2)
-    print("recover_count", recover_count_1 + recover_count_2)
-    print("Recover perc %.2f" % (((recover_count_1 + recover_count_2)
-                                 / (deficit_count_1 + deficit_count_2))* 100))
+    goal_deficit = [1, 2, 3]
+    play_time = ["40:00", "45:00", "50:00", "55:00", "57:30", "59:00", "59:30", "59:50"]
+    years = [2013, 2014, 2015, 2016, 2017, 2018]
+    for g in goal_deficit:
+        for p in play_time:
+            deficit_count = 0
+            recover_count = 0
+            for y in years:
+                deficit_count_1, recover_count_1 = recover_from_deficit(p, g, y)
+                deficit_count += deficit_count_1
+                recover_count += recover_count_1
+            print("goal_deficit", g)
+            print("play_time", p)
+            print("deficit_count", deficit_count)
+            print("recover_count", recover_count)
+            print("Recover perc %.2f" % ((recover_count / deficit_count)*100))
+            print("-------------")
