@@ -3,6 +3,7 @@ import json
 import os
 import gzip
 import concurrent.futures
+from util.data import game_count
 
 stats_api_live_url = "https://statsapi.web.nhl.com/api/v1/game/%s/feed/live"
 data_folder = "data"
@@ -12,13 +13,6 @@ game_types = {
     "playoffs": 3,
     "allstar": 4
 }
-
-
-def game_count(season):
-    if season >= 2017:
-        return 1271
-    else:
-        return 1230
 
 
 def create_game_id(season, game_type, game_id):
@@ -64,4 +58,4 @@ def fetch_and_store_all_regular_season_data_for_season(season):
               (season, games_fetched, game_count(season)))
 
 if __name__ == '__main__':
-    fetch_and_store_all_regular_season_data_for_season(2017)
+    fetch_and_store_all_regular_season_data_for_season(2018)
