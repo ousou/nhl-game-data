@@ -58,4 +58,9 @@ def fetch_and_store_all_regular_season_data_for_season(season):
               (season, games_fetched, game_count(season)))
 
 if __name__ == '__main__':
+    fetch_and_store_all_regular_season_data_for_season(2013)
+    fetch_and_store_all_regular_season_data_for_season(2014)
+    fetch_and_store_all_regular_season_data_for_season(2015)
+    fetch_and_store_all_regular_season_data_for_season(2016)
+    fetch_and_store_all_regular_season_data_for_season(2017)
     fetch_and_store_all_regular_season_data_for_season(2018)
